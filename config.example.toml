@@ -1,0 +1,30 @@
+# Все параметры необязательны: если не указан, берётся значение по умолчанию.
+
+[engine]
+cooldown_seconds = 300
+# Адреса и сети, которые не анализируются (свой мониторинг, офис, VPN).
+allowlist = ["127.0.0.1", "::1", "10.0.0.0/8"]
+
+[ssh_bruteforce]
+threshold = 5
+window_seconds = 60
+
+[ssh_user_enum]
+distinct_users = 6
+window_seconds = 300
+
+[ssh_success_after_fails]
+min_failures = 5
+window_seconds = 600
+
+[web_login_bruteforce]
+login_path = "/login"
+# Для InvoiceShield неудачный вход тоже отвечает 200.
+failure_statuses = [200, 401, 403, 429]
+threshold = 8
+window_seconds = 300
+
+[web_scanner]
+distinct_paths = 15
+window_seconds = 60
+statuses = [400, 403, 404, 405]
